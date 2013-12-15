@@ -78,7 +78,7 @@ var jadeLayout = [
   , 'html'
   , '  head'
   , '    title= title'
-  , '    link(rel=\'stylesheet\', href=\'/stylesheets/style.css\')'
+  , '    link(rel=\'stylesheet\', href=\'/css/main.css\')'
   , '  body'
   , '    block content'
 ].join(eol);
@@ -281,9 +281,9 @@ function createApplicationAt(path) {
 
   mkdir(path, function(){
     mkdir(path + '/public');
-    mkdir(path + '/public/javascripts');
-    mkdir(path + '/public/images');
-    mkdir(path + '/public/stylesheets', function(){
+    mkdir(path + '/public/js');
+    mkdir(path + '/public/img');
+    mkdir(path + '/public/css', function(){
       switch (program.css) {
         case 'less':
           write(path + '/public/stylesheets/style.less', less);
@@ -292,7 +292,7 @@ function createApplicationAt(path) {
           write(path + '/public/stylesheets/style.styl', stylus);
           break;
         default:
-          write(path + '/public/stylesheets/style.css', css);
+          write(path + '/public/css/main.css', css);
       }
     });
 
